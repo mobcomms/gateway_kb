@@ -1,0 +1,1057 @@
+@charset 'utf-8';
+
+/* z-index header 10, popup 100, toast 101, loading 1000 */
+
+.wrap {
+    position: relative;
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+
+    .header {
+        z-index: 10;
+        @include centerX(fixed, $top: 0);
+        width: 100%;
+        max-width: 768px;
+        height: rem(60);
+        background: $white;
+        border: 1px solid $bd-color;
+    
+        .prev_btn {
+            @include centerY;
+            font-size: 0;
+            width: rem(40);
+            height: rem(40);
+    
+            &::before {
+                @include content;
+                @include ico_prev(9, 17, $black);
+            }
+        }
+    
+        .close_btn {
+            @include centerY($left: rem(1));
+            font-size: 0;
+            width: rem(40);
+            height: rem(40);
+            &::before {
+                @include content;
+                @include ico_close(14, 14, $black);
+            }
+        }
+    
+        .qna_btn {
+            @include centerY($right: rem(16));
+            width: rem(38);
+            height: rem(38);
+            @include ftM;
+            @include ftSize(bd_md);
+            line-height: 12px !important;
+            color: $qa-ft-color;
+            word-break: keep-all;
+            border-radius: 50%;
+            background: $qa-bg-color;
+        }
+        
+        h1 {
+            @include ftB;
+            @include ftSize(tit_sm);
+            color: $ft-main-color;
+            text-align: center;
+            line-height: 60px;
+        }
+    }
+
+    .contents {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: $white;
+
+        .main_wrap {
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding: rem(60) rem(16) rem(40);
+
+            .ad_img_wrap {
+                position: relative;
+                margin: rem(16) auto 0;
+                &.hide {
+                    display: none;
+                }
+            }
+
+            .section_tit {
+                @include ftSB;
+                @include ftSize(sc_tit);
+                color: $ft-main-color;
+                margin-bottom: rem(16);
+            }
+
+            .main_game_wrap {
+                position: relative;
+                margin-top: rem(16);
+                .game_start_btn {
+                    width: 100%;
+                    aspect-ratio: 328/182;
+                    border-radius: rem(20);
+                    cursor: pointer;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            .sub_game_wrap {
+                position: relative;
+                margin-top: rem(30);
+                ul {
+                    li {
+                        >div {
+                            position: relative;
+                            width: 100%;
+                            aspect-ratio: 328/80;
+                            border: 1px solid $bd-color;
+                            border-radius: rem(20);
+                            padding: rem(15) rem(20) rem(15) rem(15);
+                            @include flex(center, flex-start, rem(15));
+                            cursor: pointer;
+    
+                            &::before {
+                                @include content;
+                                width: rem(50);
+                                height: rem(50);
+                            }
+    
+                            &::after {
+                                @include content;
+                                @include centerY($right: rem(20));
+                            }
+
+                            &.play_btn {
+                                background: $white;
+                                
+                                p {
+                                    @include ftM;
+                                    @include ftSize(tit_sm);
+                                    color: $blue-gray;
+                                }
+    
+                                &::after {
+                                    @include ico_arrow_type01(7,13);
+                                }
+    
+                                &.roulette {
+                                    &::before {
+                                        @include img_roulette;
+                                    }
+                                }
+    
+                                &.ladder {
+                                    &::before {
+                                        @include img_ladder;
+                                    }
+                                }
+    
+                                &.plus {
+                                    &::before {
+                                        @include img_plus;
+                                    }
+                                }
+                            }
+
+                            &.my_point_btn {
+                                background: $qa-bg-color;
+
+                                &::before {
+                                    @include img_mypoint;
+                                }
+    
+                                &::after {
+                                    @include ico_arrow_type02(22,22);
+                                }
+
+                                .text {
+                                    p {
+                                        &:first-child {
+                                            @include ftM;
+                                            @include ftSize(tit_sm);
+                                            color: $blue-gray;
+                                        }
+                                        &:last-child {
+                                            @include ftM;
+                                            @include ftSize(bd_sm);
+                                            color: $ft-gray-color3;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        & + li {
+                            margin-top: rem(6);
+                        }
+                    }
+                }
+            }
+        }
+
+        .qa_wrap {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: rem(60) rem(16) rem(40);
+
+            .tab_menu {
+                position: relative;
+                @include flex(center, flex-start, rem(40));
+                margin-top: rem(26);
+
+                li {
+                    @include ftM;
+                    @include ftSize(tit_sm);
+                    padding-bottom: rem(6);
+                    color: $tab-ft-color;
+                    text-align: center;
+                    cursor: pointer;
+
+                    &.active {
+                        border-bottom: 2px solid $point-color;
+                        @include ftB;
+                        color: $point-color;
+                    }
+                }
+            }
+
+            .tab_box {
+                display: none;
+                position: relative;
+                width: 100%;
+                height: calc(100vh - rem(60) - rem(58));
+                padding-top: rem(26);
+
+                &.active {
+                    display: block;
+                }
+
+                .question_box {
+                    .tit {
+                        @include ftSB;
+                        @include ftSize(tit_sm);
+                        color: $ft-main-color;
+                    }
+
+                    .custom_select_box {
+                        margin-top: rem(24);
+                        position: relative;
+                        width: 100%;
+
+                        .select_box {
+                            position: relative;
+                            display: block;
+                            width: 100%;
+                            padding: rem(13) rem(16);
+                            border: 1px solid $bd-color;
+                            border-radius: rem(6);
+                            background: $white;
+                            @include ftM;
+                            @include ftSize(tit_sm);
+                            color: $ft-main-color;
+                            cursor: pointer;
+
+                            &::after {
+                                @include content;
+                                @include ico_arrow_top(20, 20, $black);
+                                position: absolute;
+                                right: rem(14);
+                                transform: rotate(180deg);
+                                transition: 0.1s ease;
+                            }
+                        }
+
+                        &.active {
+                            .select_box {
+                                &::after {
+                                    transform: rotate(0);
+                                }
+
+                            }
+
+                            .option_box {
+                                max-height: 500px;
+                                opacity: 1;
+                                box-shadow: 0 3px 6px 0 rgba(85, 93, 103, 0.16);
+                                max-height: 500px;
+                            }
+                        }
+
+                        .option_box {
+                            overflow: hidden;
+                            opacity: 0;
+                            transition: max-height 0.3s ease;
+                            position: absolute;
+                            left: 0;
+                            top: rem(47);
+                            z-index: 100;
+                            width: 100%;
+                            border: 1px solid $bd-color;
+                            border-radius: rem(6);
+                            background: $white;
+                            max-height: 0;                        
+
+                            li {
+                                cursor: pointer;
+
+                                &:last-child {
+                                    border-bottom: 0;
+                                }
+
+                                padding: rem(13) rem(16);
+                                border-bottom: 1px solid $custom-select-bd-color;
+                                @include ftM;
+                                @include ftSize(tit_sm);
+                                color: $ft-main-color;
+                            }
+                        }
+
+                    }
+
+                    .text_box {
+                        margin-top: rem(8);
+                        position: relative;
+                        width: 100%;
+
+                        textarea {
+                            display: block;
+                            width: 100%;
+                            border: 1px solid $bd-color;
+                            border-radius: rem(6);
+                            background: $white;
+                            resize: none;
+                            height: rem(220);
+                            padding: rem(15) rem(16);
+                            @include ftM;
+                            @include ftSize(bd_lg);
+                            color: $ft-main-color;
+
+                            &::placeholder {
+                                @include ftSize(xl);
+                                color: $textarea-pl-ft-color;
+                            }
+
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+
+                        .count_box {
+                            margin-top: rem(8);
+                            @include flex(center, space-between);
+
+                            p {
+                                @include ftM;
+                                @include ftSize(bd_md);
+                                color: $ft-gray-color2;
+                            }
+                        }
+                    }
+
+                    .txt {
+                        margin-top: rem(13);
+                        @include ftM;
+                        @include ftSize(bd_md);
+                        color: $ft-gray-color2;
+                    }
+
+                    button {
+                        &.submit_btn {
+                            position: absolute;
+                            bottom: rem(40);
+                            @include btn_lg(100%, 32);
+                            background: $btn-bg-color;
+                            color: $white;
+                            @include ftSB;
+                            @include ftSize(tit_sm);
+
+                            &:disabled {
+                                background: $btn-disabled-color;
+                            }
+                        }
+                    }
+                }
+
+                .qa_box {
+                    li {
+                        padding: rem(16) 0;
+                        border-bottom: 1px solid $bd-color;
+
+                        &:first-child {
+                            padding-top: 0;
+                        }
+
+                        &:last-child {
+                            border-bottom: 0;
+                        }
+
+                        &.show {
+                            .question {
+                                &.finish {
+                                    &::after {
+                                        transform: rotate(0);
+                                    }
+                                }
+                            }
+
+                            .answer {
+                                max-height: rem(1000);
+                                opacity: 1;
+                                margin-top: rem(16);
+                                padding: rem(16);
+                            }
+                        }
+
+                        .question {
+                            position: relative;
+                            width: 100%;
+                            cursor: pointer;
+
+                            &.standby {
+                                .info {
+                                    .label1 {
+                                        color: $textarea-pl-ft-color;
+                                        background: $white;
+                                        border: 1px solid $bd-color;
+                                    }
+                                }
+                            }
+
+                            &.finish {
+                                .info {
+                                    .label1 {
+                                        color: $white;
+                                        background: $point-color;
+                                    }
+                                }
+
+                                &::after {
+                                    @include content;
+                                    @include ico_arrow_top(20, 20, $black);
+                                    position: absolute;
+                                    top: 0;
+                                    right: rem(-5);
+                                    transform: rotate(180deg);
+                                    transition: 0.1s ease;
+                                }
+                            }
+
+                            .info {
+                                @include flex(center, flex-start, rem(6));
+                                margin-bottom: rem(6);
+
+                                .label1 {
+                                    @include ftM;
+                                    @include ftSize(bd_sm);
+                                    padding: 0 rem(8);
+                                    border-radius: rem(11);
+                                    height: rem(22);
+                                    line-height: rem(22);
+                                }
+
+                                .label2 {
+                                    @include ftSB;
+                                    @include ftSize(tit_sm);
+                                    color: $ft-main-color;
+                                }
+                            }
+
+                            .date {
+                                padding-left: rem(8);
+                                @include ftM;
+                                @include ftSize(bd_sm);
+                                color: $ft-gray-color2;
+                            }
+
+                            .content {
+                                width: 100%;
+                                @include ftM;
+                                @include ftSize(bd_md);
+                                color: $ft-main-color;
+                                word-break: keep-all;
+                                word-wrap: break-word;
+                                padding: rem(16) rem(8) 0;
+                            }
+                        }
+
+                        .answer {
+                            max-height: 0;
+                            opacity: 0;
+                            overflow: hidden;
+                            background: $qa-bg-color;
+                            transition: max-height 0.3s ease, padding-top 0.3s ease;
+
+                            .label {
+                                display: inline-block;
+                                @include ftM;
+                                @include ftSize(bd_sm);
+                                padding: rem(0) rem(8);
+                                border-radius: rem(12);
+                                height: rem(22);
+                                line-height: rem(22);
+                                color: $white;
+                                background: $btn-bg-color;
+                            }
+
+                            .content {
+                                width: 100%;
+                                @include ftM;
+                                @include ftSize(bd_md);
+                                color: $ft-main-color;
+                                word-break: keep-all;
+                                word-wrap: break-word;
+                                padding: rem(10) 0 0 rem(8);
+                                line-height: rem(20);
+                            }
+                        }
+                    }
+
+                }
+
+                .withdrawal {
+                    .tit {
+                        @include ftB;
+                        @include ftSize(tit_md);
+                        color: $ft-main-color;
+                        line-height: 1 !important;
+                    }
+
+                    .txt {
+                        margin-top: rem(20);
+                        @include ftM;
+                        @include ftSize(bd_lg);
+                        color: $ft-main-color;
+                        word-break: keep-all;
+                    }
+
+                    .withdrawal_btn {
+                        position: absolute;
+                        bottom: rem(40);
+                        @include btn_lg(100%, 32);
+                        background: $btn-bg-color;
+                        color: $white;
+                        @include ftSB;
+                        @include ftSize(tit_sm);
+                    }
+                }
+            }
+        }
+
+        .mypoint_wrap,
+        .change_wrap {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: rem(60) rem(16) rem(40);
+
+            .point_box {
+                margin: rem(34) 0 rem(18);
+
+                .tit {
+                    @include ftSB;
+                    @include ftSize(tit_sm);
+                    color: $blue-gray;
+                }
+
+                .point {
+                    @include ftB;
+                    font-size: rem(36);
+                    line-height: rem(32);
+                    letter-spacing: rem(-0.14);
+                    color: $point-color;
+                    margin-top: rem(16);
+
+                    &::after {
+                        content: 'M';
+                        display: inline-block;
+                        margin-left: rem(1);
+                    }
+                }
+
+            }
+
+            button {
+                &.change_btn {
+                    position: absolute;
+                    bottom: rem(40);
+                    width: 100%;
+                    @include btn_lg(100%, 32);
+                    @include ftSB;
+                    @include ftSize(tit_sm);
+                    color: $white;
+                    background: $btn-bg-color;
+
+                    span {
+                        margin-left: rem(6);
+                        @include ftM;
+                        @include ftSize(bd_sm);
+                    }
+
+                    &:disabled {
+                        background: $btn-disabled-color;
+                    }
+                }
+                &.request_btn {
+                    position: absolute;
+                    bottom: rem(40);
+                    @include btn_lg(calc(100% - rem(32)), 32);
+                    @include ftSB;
+                    @include ftSize(tit_sm);
+                    color: $white;
+                    background: $btn-bg-color;
+
+                    span {
+                        margin-left: rem(6);
+                        @include ftM;
+                        @include ftSize(bd_sm);
+                    }
+
+                    &:disabled {
+                        background: $btn-disabled-color;
+                    }
+                }
+            }
+
+            .tab_menu {
+                position: relative;
+                margin-top: rem(30);
+                @include flex(center, space-between);
+
+                li {
+                    width: 50%;
+                    padding: rem(10) 0;
+                    @include ftM;
+                    @include ftSize(tit_sm);
+                    color: $tab-ft-color;
+                    text-align: center;
+                    cursor: pointer;
+
+                    &.active {
+                        border-bottom: 2px solid $point-color;
+                        @include ftB;
+                        color: $point-color;
+                    }
+                }
+            }
+
+            .tab_box {
+                &.active {
+                    display: block;
+                }
+
+                display: none;
+                position: relative;
+                width: 100%;
+                padding: rem(16) 0 rem(30);
+                height: calc(100vh - rem(60) - rem(180));
+
+                .notice {
+                    width: 100%;
+                    padding: rem(14) rem(20);
+                    border-radius: rem(12);
+                    background: $notice-bg-color;
+
+                    p {
+                        @include ftM;
+                        @include ftSize(bd_md);
+                        line-height: rem(20);
+                        color: $notice-ft-color;
+                    }
+                }
+
+                .list_box {
+                    &.hide {
+                        display: none;
+                    }
+                    
+                    &.full {
+                        height: calc(100% - rem(80));
+                    }
+
+                    margin-top: rem(5);
+                    overflow-y: auto;
+                    height: calc(100% - rem(150));
+
+                    li {
+                        @include flex(center, space-between);
+                        padding: rem(18) 0;
+                        border-bottom: 1px solid $bd-color;
+
+                        div {
+                            width: calc(100% - rem(120));
+
+                            .tit {
+                                @include ftSB;
+                                @include ftSize(bd_lg);
+                                color: $ft-main-color;
+                                @include ellipsis;
+                            }
+
+                            .date {
+                                margin-top: rem(2);
+                                @include ftM;
+                                @include ftSize(bd_sm);
+                                color: $ft-gray-color2;
+                                @include ellipsis;
+                            }
+                        }
+
+                        .point {
+                            @include ftSB;
+                            @include ftSize(tit_sm);
+                            color: $ft-gray-color2;
+
+                            &::after {
+                                content: 'M';
+                                display: inline-block;
+                                margin-left: rem(1);
+                            }
+
+                            &.plus {
+                                color: $point-color;
+
+                                &::before {
+                                    content: '+';
+                                    display: inline-block;
+                                    margin-right: rem(5);
+                                }
+                            }
+
+                            &.minus {
+                                color: $red-color;
+
+                                &::before {
+                                    content: '-';
+                                    display: inline-block;
+                                    margin-right: rem(5);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .noDate {
+                    height: calc(100% - rem(130));
+                    @include flex(center, center);
+
+                    &.hide {
+                        display: none;
+                    }
+
+                    p {
+                        @include ftB;
+                        @include ftSize(tit_md);
+                        color: $ft-main-color;
+                        text-align: center;
+
+                        span {
+                            position: relative;
+
+                            &::before {
+                                @include centerX;
+                                bottom: 0;
+                                @include content;
+                                width: rem(111);
+                                height: rem(7);
+                                background: $point-color;
+                                opacity: 0.2;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .change_box {
+                position: relative;
+                width: 100%;
+
+                .input_box {
+                    margin-top: rem(34);
+                    position: relative;
+                    width: 100%;
+
+                    input[type=text] {
+                        width: 100%;
+                        padding: rem(0) rem(30) rem(10) rem(2);
+                        border-bottom: 1px solid $bd-color;
+                        @include ftSB;
+                        @include ftSize(tit_sm);
+                        color: $ft-main-color;
+
+                        &::placeholder {
+                            color: $textarea-pl-ft-color;
+                        }
+                    }
+
+                    .delete_btn {
+                        @include centerY;
+                        right: 0;
+                        font-size: 0;
+                        width: rem(26);
+                        height: rem(26);
+                        background: $qa-bg-color;
+                        border-radius: 100%;
+
+                        &::after {
+                            @include content;
+                            @include ico_close(10, 10, $black);
+                        }
+                    }
+                }
+
+                .error_msg {
+                    display: none;
+                    margin-top: rem(10);
+                    @include ftM;
+                    @include ftSize(bd_sm);
+                    color: $red-color;
+
+                    &.show {
+                        display: block;
+                    }
+                }
+
+                .btn_box {
+                    @include flex(center, flex-start, rem(8));
+
+                    button {
+                        margin-top: rem(10);
+                        padding: 0 rem(12);
+                        height: rem(32);
+                        @include ftM;
+                        @include ftSize(bd_lg);
+                        border-radius: rem(18);
+                    }
+
+                    .all_btn {
+                        color: $btn-bg-color;
+                        background: $white;
+                        border: 1px solid $bd-color;
+
+                        &.hide {
+                            display: none;
+                        }
+                    }
+
+                    .hund_btn {
+                        color: $white;
+                        background: $point-color;
+
+                        &.hide {
+                            display: none;
+                        }
+                    }
+
+                    .thous_btn {
+                        color: $white;
+                        background: $dark-blue-color;
+
+                        &.hide {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            .notice_box {
+                @include centerX($bottom: rem(100));
+                width: calc(100% - rem(32));
+                padding: rem(20) rem(20);
+                background: $notice-bg-color;
+
+                p {
+                    @include ftSB;
+                    @include ftSize(tit_sm);
+                    color: $ft-main-color;
+                }
+
+                ul {
+                    margin-top: rem(10);
+                    margin-left: rem(6);
+
+                    li {
+                        @include ftM;
+                        @include ftSize(bd_md);
+                        color: $notice-ft-color2;
+                        list-style: none;
+                        word-break: keep-all;
+                        line-height: rem(20);
+                        &::marker {
+                            content: '•';
+                        }
+                        & + li {
+                            margin-top: rem(2);
+                        }
+                    }
+                }
+            }
+        }
+
+        .agree_wrap {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: rem(60) rem(16) 0;
+            overflow-y: auto;
+
+            .txt_box {
+                padding: rem(16) 0;
+                @include ftM;
+                @include ftSize(bd_lg);
+            }
+        }
+
+        .splash_toast {
+            @include centerX(fixed, $bottom: rem(30));
+            border-radius: rem(6);
+            padding: rem(14) rem(16);
+            z-index: 101;
+            background: rgba(85, 93, 103, 0.9);
+            width: 90%;
+            text-align: left;
+            opacity: 0;
+            animation: showToast 5s ease forwards;
+            animation-delay: 3s;
+
+            @keyframes showToast {
+                0% {
+                    bottom: -100px;
+                    opacity: 0;
+                }
+
+                20% {
+                    bottom: rem(30);
+                    opacity: 1;
+                }
+
+                80% {
+                    bottom: rem(30);
+                    opacity: 1;
+                }
+
+                100% {
+                    bottom: -100px;
+                    opacity: 0;
+                }
+            }
+
+            p {
+                @include ftRegular;
+                @include ftSize(lg);
+                color: $white;
+                text-wrap: nowrap;
+
+                &::before {
+                    @include content;
+                    @include ico_anik(21, 21, $white);
+                    vertical-align: middle;
+                    margin-right: rem(6);
+                }
+            }
+        }
+    }
+}
+
+
+.loading_wrap {
+    z-index: 1000;
+    @include flex(center, center);
+    @include centerX(fixed, $top: 0);
+    width: 100%;
+    max-width: 768px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+
+    &.hide {
+        display: none;
+    }
+
+    .loading {
+        @include centerXY;
+        @include ftM;
+        @include ftSize(tit_sm);
+        color: $white;
+        text-align: center;
+
+        &::before {
+            @include content(block);
+            @include img_loading;
+            width: rem(80);
+            height: rem(80);
+            margin-bottom: rem(10);
+        }
+    }
+}
+
+.coachmark_wrap {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #333333;
+
+    .close_btn {
+        position: absolute;
+        top: rem(5);
+        right: rem(5);
+        font-size: 0;
+        width: rem(40);
+        height: rem(40);
+        &::before {
+            @include content;
+            @include ico_close_wh(17, 17);
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        object-position: top;
+        object-fit: contain;
+    }
+
+    // .img {
+    //     width: 100%;
+    //     height: 100%;
+    //     font-size: 0;
+    //     @include img_coachmark;
+    // }
+
+    &.hide {
+        display: none;
+        opacity: 0;
+        & + header {
+            display: block;
+    
+            & + .contents {
+                display: block;
+            }
+        }
+    }
+
+    & + header {
+        display: none;
+
+        & + .contents {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,315 @@
+.wrap .contents .main_wrap .sub_game_wrap ul li > div::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.wrap .contents .main_wrap .sub_game_wrap ul li > div.play_btn::after {
+  font-size: 0;
+  width: 1.7rem;
+  height: 2.3rem;
+}
+
+.wrap .contents .main_wrap .sub_game_wrap ul li > div.roulette::after,
+.wrap .contents .main_wrap .sub_game_wrap ul li > div.moneybox::after {
+  background: url("../images/kwangdong/icon/btn_arrow_white.png") no-repeat
+    center;
+  background-size: contain;
+}
+
+.wrap .contents .main_wrap .sub_game_wrap ul li > div.ladder::after,
+.wrap .contents .main_wrap .sub_game_wrap ul li > div.reward::after {
+  background: url("../images/kwangdong/icon/btn_arrow_black.png") no-repeat
+    center;
+  background-size: contain;
+}
+
+.wrap
+  .contents
+  .main_wrap
+  .sub_game_wrap
+  ul
+  li
+  > div.play_btn
+  .text
+  p:first-child {
+  font-family: "HGGGothicssi";
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: 2.3rem;
+  letter-spacing: -0.006rem;
+  margin-bottom: 0.8rem;
+}
+
+.wrap
+  .contents
+  .main_wrap
+  .sub_game_wrap
+  ul
+  li
+  > div.play_btn
+  .text
+  p:last-child {
+  font-family: "HGGGothicssi";
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.4rem;
+  letter-spacing: -0.004rem;
+}
+
+.wrap .contents .main_wrap .sub_game_wrap ul li > div {
+  width: 100%;
+  aspect-ratio: 328/80;
+  border: 1px solid #e1e1e1;
+  /* border-radius: 4rem; */
+  border-radius: 15rem;
+  padding: 1.5rem 2rem 1.5rem 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+.wrap .contents .main_wrap .sub_game_wrap ul li {
+  position: relative;
+  /* margin-top: 1rem; */
+  margin-bottom: 1.9rem;
+  /* margin-bottom: 5rem; */
+}
+
+.wrap .contents .main_wrap .sub_game_wrap ul li > div::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 7.5rem;
+  height: 7.5rem;
+  bottom: 0;
+  right: 11%;
+}
+
+.wrap .contents .main_wrap .sub_game_wrap ul li > div.roulette {
+  background-color: #5566ff;
+  color: #ffffff;
+}
+
+.wrap
+  .contents
+  .main_wrap
+  .sub_game_wrap
+  ul
+  li
+  > div.play_btn.roulette::before {
+  background: url("../images/kwangdong/img_roulette.png") no-repeat center;
+  background-size: 100%;
+}
+
+.wrap .contents .main_wrap .sub_game_wrap ul li > div.ladder {
+  background-color: #24eb15;
+  color: #000000;
+}
+
+.wrap .contents .main_wrap .sub_game_wrap ul li > div.play_btn.ladder::before {
+  background: url("../images/kwangdong/img_ladder.png") no-repeat center;
+  background-size: 100%;
+}
+
+.wrap .contents .main_wrap .sub_game_wrap ul li > div.moneybox {
+  background-color: #ff5400;
+  color: #ffffff;
+}
+
+.wrap .contents .main_wrap .sub_game_wrap ul li > div.reward {
+  background-color: #ffd200;
+  color: #000000;
+}
+
+.wrap .contents .main_wrap .sub_game_wrap ul li > div.play_btn.reward::before {
+  background: url("../images/kwangdong/img_point.png") no-repeat center;
+  background-size: 100%;
+}
+
+.wrap
+  .contents
+  .main_wrap
+  .sub_game_wrap
+  ul
+  li
+  > div.play_btn.moneybox::before {
+  background: url("../images/kwangdong/img_moneybox.png") no-repeat center;
+  background-size: 100%;
+  width: 8.5rem;
+  height: 8.5rem;
+  bottom: -10px;
+}
+
+.wrap .header .qna_btn {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-family: "Pretendard";
+  font-size: 1.8rem;
+  font-weight: 700;
+  vertical-align: middle;
+  line-height: 2rem;
+  letter-spacing: -0.003rem;
+  color: #777;
+  border: 1px solid #777;
+  border-radius: 50%;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.wrap .header .qna_btn::before {
+  content: "?";
+}
+
+.wrap .contents .main_wrap .main_game_wrap .game_start_btn {
+  position: relative;
+  display: flex;
+  align-items: center; /* 세로 중앙 */
+  justify-content: center; /* 가로 중앙 */
+}
+.wrap .contents .main_wrap .main_game_wrap .game_start_btn img {
+  width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+
+  /* 어두운 효과 */
+  /* filter: brightness(50%); */
+}
+.wrap .contents .main_wrap .main_game_wrap .game_start_btn .txt {
+  position: absolute;
+  font-family: "HGGGothicssi";
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.wrap .contents .main_wrap .main_game_wrap .game_start_btn .txt span {
+  font-weight: 800;
+  font-size: 1.8rem;
+}
+
+/* .wrap .contents .main_wrap .main_game_wrap .game_start_btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+} */
+
+/* PC */
+@media (min-width: 768px) {
+  body {
+    /* PC 크기 조절 */
+    /* position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+    max-height: 740px;
+    overflow: hidden; */
+  }
+  .wrap .contents {
+    /* PC 크기 조절 */
+    height: 100%;
+  }
+
+  .wrap .contents .main_wrap,
+  .wrap .contents .coachmark_wrap,
+  .wrap .contents .mypoint_wrap,
+  .wrap .contents .qa_wrap,
+  .wrap .contents .loading_wrap,
+  .wrap .contents .change_wrap,
+  .wrap .contents .agree_wrap {
+    /* PC 크기 조절 */
+    /* max-height: 740px; */
+    overflow-y: auto;
+  }
+
+  .pop_wrap {
+    max-width: 768px;
+
+    /* max-height: 740px; */
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  /* 버튼 */
+  .wrap .contents .main_wrap .sub_game_wrap ul li > div::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 12.5rem;
+    height: 12.5rem;
+    bottom: 0;
+    right: 11%;
+  }
+  .wrap
+    .contents
+    .main_wrap
+    .sub_game_wrap
+    ul
+    li
+    > div.play_btn.moneybox::before {
+    background: url(../images/kwangdong/img_moneybox.png) no-repeat center;
+    background-size: 100%;
+    width: 12.5rem;
+    height: 12.5rem;
+    bottom: -15px;
+  }
+  .wrap
+    .contents
+    .main_wrap
+    .sub_game_wrap
+    ul
+    li
+    > div.play_btn
+    .text
+    p:first-child {
+    font-size: 3.4rem;
+    margin-bottom: 1.5rem;
+  }
+  .wrap
+    .contents
+    .main_wrap
+    .sub_game_wrap
+    ul
+    li
+    > div.play_btn
+    .text
+    p:last-child {
+    font-size: 1.6rem;
+  }
+
+  .wrap .contents .splash_toast {
+    width: 90%;
+    max-width: 768px;
+  }
+  #toastMessage {
+    max-width: 768px;
+  }
+}

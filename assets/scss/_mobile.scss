@@ -1,0 +1,125 @@
+@charset 'utf-8';
+@import "_components";
+
+
+
+@media (min-width: 768px) {
+    html {
+        background: #f8f8f8;
+    }
+    body {
+        @include centerXY;
+        max-width: 500px;
+        max-height: 740px;
+        overflow: hidden;
+    }
+
+    .wrap {
+        border: 1px solid $bd-color;
+        .coachmark_wrap {
+            max-height: 740px;
+
+            .slide {
+                height: 100%;
+            }
+        }
+
+        .contents {
+            max-height: 740px;
+
+            .main_wrap, .coachmark_wrap, .mypoint_wrap, .qa_wrap, .loading_wrap, .change_wrap, .agree_wrap {
+                max-height: 740px;
+                @include scroll;
+            }
+
+            .qa_wrap, .change_wrap, .agree_wrap {
+                min-height: 740px;
+                @include scroll;
+            }
+
+            .qa_wrap {
+                .tab_box {
+                    height: calc(100% - 5rem);
+                }
+            }
+
+            .mypoint_wrap {
+                min-height: 740px;
+                .tab_box {
+                    height: calc(100% - 120px);
+
+                    .list_box {
+                        @include scroll;
+                    }
+                }
+            }
+
+            .main_wrap {
+                .ad_wrap {
+                    margin: rem(15) auto 0;
+                }
+
+                .ad_img_wrap {
+                    img {
+                        margin-top: rem(15) !important;
+                    }
+                }
+
+                .service_tit {
+                    margin: rem(15) auto 0;
+                }
+            }
+        }
+    }
+
+    .pop_wrap {
+        max-width: 500px;
+        max-height: 740px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .header {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 320px) {
+    .main_wrap {
+        .service_tit {
+            padding-left: rem(15);
+        }
+
+        .point_wrap {
+            width: rem(260) !important;
+
+            button {
+                span {
+                    word-break: keep-all;
+                    line-height: rem(14);
+                    width: calc(100% - rem(66) - rem(24));
+                }
+            }
+        }
+    }
+
+    .pop_wrap {
+        .pop_head {
+            .tit {
+                font-size: rem(15) !important;
+                word-break: keep-all;
+            }
+        }
+
+        .pop_body {
+            .agree_box {
+                li {
+                    a {
+                        font-size: rem(13) !important;
+                    }
+                    margin-bottom: rem(20) !important;
+                }
+            }
+        }
+    }
+}

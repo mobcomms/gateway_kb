@@ -1,0 +1,225 @@
+@charset 'utf-8';
+@use "sass:math";
+
+$base-rem-size: 10;
+
+// 단위 제거
+@function remove-unit($value) {
+  @return math.div($value, $value * 0 + 1);
+}
+
+// rem 계산
+@function rem($px, $base: $base-rem-size) {
+  @return math.div($px, $base) * 1rem;
+}
+
+/* font */
+@mixin ftR {
+    font-family: 'Apple SD Gothic Neo';
+    font-weight: 400;
+}
+
+@mixin ftM {
+    font-family: 'Apple SD Gothic Neo';
+    font-weight: 500;
+}
+
+@mixin ftSB {
+    font-family: 'Apple SD Gothic Neo';
+    font-weight: 600;
+}
+
+@mixin ftB {
+    font-family: 'Apple SD Gothic Neo';
+    font-weight: 700;
+}
+
+@mixin ftRegular {
+    //font-family: $font-name;
+    font-weight: 400;
+}
+
+@mixin ftMedium {
+    //font-family: $font-name;
+    font-weight: 500;
+}
+
+@mixin ftSemiBold {
+    //font-family: $font-name;
+    font-weight: 600;
+}
+
+@mixin ftBold {
+    //font-family: $font-name;
+    font-weight: 700;
+}
+
+@mixin ftSize($size) {
+    @if $size=='hd_lg' {
+        font-size: rem(29);
+        line-height: rem(40);
+        letter-spacing: rem(-0.14);
+    }
+
+    @else if  $size=='hd_sm' {
+        font-size: rem(22);
+        line-height: rem(30);
+        letter-spacing: rem(-0.09);
+    }
+
+    @else if $size=='tit_md' {
+        font-size: rem(18);
+        line-height: rem(29);
+        letter-spacing: rem(-0.07);
+    }
+
+    @else if $size=='tit_sm' {
+        font-size: rem(15);
+        line-height: rem(23);
+        letter-spacing: rem(-0.06);
+    }
+
+    @else if $size=='bd_lg' {
+        font-size: rem(13);
+        line-height: rem(18);
+        letter-spacing: rem(-0.05);
+    }
+
+    @else if $size=='bd_md' {
+        font-size: rem(12);
+        line-height: rem(16);
+        letter-spacing: rem(-0.05);
+    }
+
+    @else if $size=='bd_sm' {
+        font-size: rem(11);
+        line-height: rem(14);
+        letter-spacing: rem(-0.04);
+    }
+
+    @else if $size=='sc_tit' {
+        font-size: rem(18);
+        line-height: rem(24);
+        letter-spacing: rem(-0.07);
+    }
+}
+
+@mixin ellipsis($lines: 1) {
+    @if ($lines==1) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    @else {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: $lines;
+        -webkit-box-orient: vertical;
+    }
+}
+
+/* layout */
+@mixin flex($align, $justify, $gap:0, $direction: row) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    gap: $gap;
+    flex-direction: $direction;
+}
+
+@mixin centerX($type: absolute, $top: null, $bottom: null) {
+    @if( $type == fixed or $type == absolute ){
+        position: $type;
+        left: 50%;
+        top : $top;
+        bottom : $bottom;
+        transform: translateX(-50%);
+    }
+}
+
+@mixin centerY($type: absolute, $left: null, $right: null) {
+    @if( $type == fixed or $type == absolute ){
+        position: $type;
+        top: 50%;
+        left : $left;
+        right : $right;
+        transform: translateY(-50%);
+    }
+}
+
+@mixin centerXY($type: absolute) {
+    @if( $type == fixed or $type == absolute ){
+        position: $type;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@mixin scroll {
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 20px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #e9e9e9;
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+}
+
+
+@mixin innerscroll($height) {
+    overflow-y: auto;
+    @include scroll;
+    max-height: $height;
+}
+
+@mixin noscroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* button */
+@mixin button($width, $height, $radius) {
+    width: rem($width);
+    height: rem($height);
+
+    @if $radius !=0 {
+        border-radius: rem($radius);
+    }
+}
+
+@mixin content($display: inline-block) {
+    content: '';
+    display: $display;
+}
+
+@mixin btn_lg($width, $radius)  {
+    width: $width;
+    height: rem(47);
+    border-radius: rem($radius);
+}
+
+@mixin btn_md($width, $radius)  {
+    width: $width;
+    height: rem(39);
+    border-radius: rem($radius);
+}
+
+@mixin btn_sm($width, $radius) {
+    width: $width;
+    height: rem(32);
+    border-radius: rem($radius);
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <!-- 개발(캐싱방지) *우선 개발서버만적용 운영은 주석 -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /> -->
+    <title>광동상회</title>
+    <!-- 로컬 -->
+    <!-- <link rel="stylesheet" href="../assets/css/common.css" /> 
+    <link rel="stylesheet" href="../assets/css/kwandong.css" /> -->
+    <!-- 운영 -->
+    <link rel="stylesheet" href="/gateway_kd/assets/css/common.css?ver=4" />
+    <link rel="stylesheet" href="/gateway_kd/assets/css/kwandong.css?ver=4" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="loading_wrap hide">
+        <div class="loading">Loading...</div>
+      </div>
+      <!-- <div class="coachmark_wrap hide">
+        <button type="button" class="close_btn" id="coachClose" style="width: 3rem; height: 3rem;">닫기</button>
+        <div class="imgCoachmark"></div>
+      </div> -->
+      <header class="header">
+        <button type="button" class="close_btn" id="mainClose">닫기</button>
+        <h1 class="logo"></h1>
+        <button type="button" class="qna_btn auth_btn" id="qna"></button>
+        <img src="./assets/images/white_transparent_1px.gif" style="position: relative;
+    left: 0.5%;"/>
+      </header>
+      <div class="contents">
+        <div id="anickToast" style="display: none;">
+          <p>(주) 에이닉에서 제공하는 서비스입니다.</p>
+        </div>
+        <!-- TODO : 광동 padding 좌우 여백 조정 -->
+        <div class="main_wrap" style="padding: 30px 0 40px;">
+            
+          <!-- 키우기 영역 -->
+          <div class="main_game_wrap" >
+            
+            <div class="game_start_btn auth_btn" id="raising">
+              <img alt="키우기 준비중" src="./assets/images/kwangdong/rasing_kwangE.png"/>
+              <!-- <p class="txt"><span>광이프렌즈 키우기 서비스 준비 중!</span> </br>기다리는 동안 앱테크로 혜택 받아보세요.</p> -->
+            </div>
+          <div class="sub_game_wrap">
+            <ul class="play_wrap"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 팝업에 show 클래스 추가 -->
+    <!-- 약관 동의 팝업 -->
+    <div id="agreePop" class="pop_wrap">
+      <div class="pop_contents type01">
+        <button type="button" class="close_btn ico" id="close_btn">닫기</button>
+        <div class="pop_head">
+          <p class="tit">
+            광이프렌즈 서비스 이용을<br/> 위해 약관에 동의해주세요.
+          </p>
+        </div>
+        <div class="pop_body">
+          <ul class="agree_box">
+            <li>
+              <!-- 로컬 -->
+              <!-- <a href="./html/terms/termsService.html" target="_blank"
+                >서비스 이용 약관</a
+              > -->
+              <!-- 운영 -->
+              <a href="/gateway_kd/html/terms/termsService.html" target="_blank"
+                >서비스 이용 약관</a
+              >
+            </li>
+            
+          </ul>
+        </div>
+        <div class="pop_foot">
+          <button
+            type="button"
+            class="btn confirm"
+            id="confirm_termsAgree_modal"
+          >
+            동의
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="toastMessage" class="check">
+      <p>준비 중인 서비스입니다.</p>
+    </div>
+    <!-- 약관철회 후 이용 안내 팝업 -->
+    <div id="withdrwaPop" class="pop_wrap">
+      <div class="pop_contents type01">
+        <div class="pop_body">
+          <p class="notice_txt">
+            `광이프렌즈 서비스`는 </br>약관 철회 후 24시간 이후 </br>재 이용이 가능합니다.
+          </p>
+        </div>
+        <div class="pop_foot">
+          <button type="button" class="btn confirm" id="confirmWithdrwa">
+            확인
+          </button>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+  <!-- 로컬 -->
+  <!-- <script src="../constants/product.js"></script>
+  <script type="module" src="../js/main.js"></script> -->
+  <!-- 운영 -->
+  <script src="/gateway_kd/constants/product.js?ver=4"></script>
+  <script type="module" src="/gateway_kd/js/main.js?ver=4"></script>
+</html>

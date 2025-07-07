@@ -1,0 +1,122 @@
+@charset 'utf-8';
+
+/* images */
+@mixin image($name, $path: "../images/", $format:"png", $bgXY:center, $bg:'',) {
+    background: #{$bg} url("#{$path}#{$name}.#{$format}") no-repeat $bgXY;
+}
+
+@mixin img_roulette {
+    @include image($name:'img_roulette');
+    background-size: 100%;
+}
+
+@mixin img_ladder {
+    @include image($name:'img_ladder');
+    background-size: 100%;
+}
+
+@mixin img_plus {
+    @include image($name:'img_plus');
+    background-size: 100%;
+}
+
+@mixin img_mypoint {
+    @include image($name:'img_mypoint');
+    background-size: 100%;
+}
+
+@mixin img_loading {
+    @include image($name:'img_loading');
+    background-size: 100%;
+}
+
+@mixin img_coachmark {
+    @include image($name:'img_coachmark', $bgXY:top center);
+    background-size: contain;
+}
+
+@mixin main_character {
+    @include image($name:'main_character');
+    background-size: 100%;
+}
+
+@mixin img_gs_logo {
+    @include image($name:'img_gs_logo');
+    background-size: 100%;
+}
+
+/* icon */
+@mixin icon ($name, $path: "../images/icon/", $format:"png", $bgXY:center) {
+    background: url("#{$path}#{$name}.#{$format}") no-repeat $bgXY;
+    font-size: 0;
+}
+
+@mixin iconMask ($name, $color, $path: "../images/icon/", $format:"svg") {
+    background-color: $color;
+    mask-image : url("#{$path}#{$name}.#{$format}");
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    font-size: 0;
+}
+
+@mixin ico_question($width, $height) {
+    @include icon($name:'ico_question', $format:"svg" );
+    width: rem($width);
+    height: rem($height);
+}
+
+@mixin ico_prev($width, $height, $color: auto) {
+    @include iconMask($name:'ico_prev', $color : $color );
+    width: rem($width);
+    height: rem($height);
+}
+
+@mixin ico_close($width, $height, $color: auto) {
+    @include iconMask($name:'ico_close', $color : $color );
+    width: rem($width);
+    height: rem($height);
+}
+
+@mixin ico_arrow($width, $height) {
+    @include icon($name:'ico_arrow', $format:"svg" );
+    width: rem($width);
+    height: rem($height);
+}
+
+@mixin ico_arrow_top($width, $height, $color: auto) {
+    @include iconMask($name:'ico_arrow_top', $color : $color );
+    width: rem($width);
+    height: rem($height);
+}
+
+@mixin ico_check($width, $height) {
+    @include icon($name:'ico_check', $format:"svg" );
+    width: rem($width);
+    height: rem($height);
+}
+
+@mixin ico_close_wh($width, $height) {
+    @include icon($name:'ico_close_wh', $format:"svg" );
+    width: rem($width);
+    height: rem($height);
+}
+
+@mixin ico_anik($width, $height, $color: auto) {
+    @include iconMask($name:'ico_anik', $color : $color );
+    width: rem($width);
+    height: rem($height);
+}
+
+@mixin ico_arrow_type01($width, $height) {
+    @include icon($name:'ico_arrow_type01', $format:"svg" );
+    width: rem($width);
+    height: rem($height);
+}
+
+@mixin ico_arrow_type02($width, $height) {
+    @include icon($name:'ico_arrow_type02', $format:"svg" );
+    width: rem($width);
+    height: rem($height);
+}
+
